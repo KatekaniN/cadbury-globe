@@ -1,0 +1,71 @@
+:root{
+  top:0px;
+--primary: #fff;
+--bg-envelope-color: #C3A36D;
+--envelope-tab: #C3A36D;
+--envelope-cover: #bc924a;
+--shadow-color: rgba(45, 43, 43, 0.3);
+--txt-color: #333;
+--bg-color: #451E7C;
+}
+
+
+@font-face{
+  font-family: 'DeerSnow';
+  src: url('DeerSnow.ttf') ;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column; 
+  justify-content: flex-start; 
+  align-items: center; 
+  height: 100vh; 
+}
+
+.logo-elements{
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+}
+
+.logo-elements h1{
+  position: absolute;
+  font-family: 'DeerSnow';
+  color: var(--primary);
+  font-size: 2.2em;
+  margin-top: 185px;
+  margin-left: 0em;
+
+}
+
+.logo {
+  width: 35%;
+  height: 35%;
+  margin-top: 1.2em; 
+  margin-left: 30px;
+}
+
+.snow-village {
+  top:15%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%; 
+  height: 20vh; 
+  object-fit: cover;
+  overflow: visible;
+  opacity: 0.5;
+}
+
+.stand-items{
+  display: flex;
+  flex-direction: row;
+  gap:0px;
+  align-items: center;
+  margin-left: 300px;
+}

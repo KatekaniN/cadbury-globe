@@ -1,0 +1,300 @@
+:root{
+top:0px;
+--primary: #fff;
+--bg-envelope-color: #c59644;
+--envelope-tab: #C3A36D;
+--envelope-cover: #bc924a;
+--shadow-color: rgba(45, 43, 43, 0.3);
+--txt-color: #333;
+--bg-color: #451E7C;
+}
+
+
+@font-face{
+font-family: 'DeerSnow';
+src: url('DeerSnow.ttf') ;
+}
+
+body {
+margin: 0;
+padding: 0;
+font-family: 'Roboto', sans-serif;
+background-color: var(--bg-color);
+display: flex;
+flex-direction: column; 
+justify-content: flex-start; 
+align-items: center; 
+height: 100vh; 
+}
+
+
+.question-container-magic {
+position: relative;
+z-index: 2;
+background: rgba(255, 255, 255, 0.15);
+backdrop-filter: blur(10px);
+padding: 2rem;
+border-radius: 20px;
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+width: 80%;
+max-width: 500px;
+margin: 0 auto;
+top:6em;
+}
+
+.question-magic {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 1.5rem;
+}
+
+.question-magic h2 {
+color: var(--bg-envelope-color);
+font-size: 1.5rem;
+text-align: center;
+margin: 0;
+text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+input {
+width: 80%;
+padding: 12px;
+border: 2px solid rgba(255, 255, 255, 0.3);
+border-radius: 10px;
+background: rgba(255, 255, 255, 0.1);
+color: var(--bg-envelope-color);
+font-size: 1.1rem;
+transition: all 0.3s ease;
+}
+
+input:focus {
+outline: none;
+border-color: rgba(255, 255, 255, 0.6);
+box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.button-container-magic {
+display: flex;
+gap: 1rem;
+margin-top: 1rem;
+}
+
+button {
+padding: 12px 24px;
+border-radius: 25px;
+background: linear-gradient(145deg, #5024a3, #451E7C);
+color: var(--bg-envelope-color);
+border: none;
+cursor: pointer;
+font-size: 1rem;
+transition: transform 0.2s ease, box-shadow 0.2s ease;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+transform: translateY(-2px);
+box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+.logo-elements-magic{
+display: flex;
+flex-direction: column;
+align-content: flex-start;
+}
+
+.logo-elements-magic h1{
+position: absolute;
+font-family: 'DeerSnow';
+color: var(--primary);
+font-size: 2.2em;
+margin-top: 185px;
+margin-left: 0em;
+
+}
+
+.logo-magic {
+width: 35%;
+height: 35%;
+margin-top: 1.2em; 
+margin-left: 30px;
+}
+
+.snow-village-magic {
+top:15%;
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%; 
+height: 20vh; 
+object-fit: cover;
+overflow: visible;
+opacity: 0.5;
+}
+
+
+.healed-message {
+text-align: center;
+color: var(--primary);
+margin-top: 2rem;
+}
+
+.healed-message h2 {
+font-size: 1.8rem;
+margin-bottom: 1rem;
+animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+0%, 100% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff; }
+50% { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff; }
+}
+
+
+
+.progress-milestones-magic {
+display: flex;
+justify-content: space-between;
+position: absolute;
+width: 100%;
+top: -35px;
+}
+
+.milestone-magic {
+width: 20px;
+height: 20px;
+background: rgba(255, 255, 255, 0.1);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 12px;
+color: white;
+}
+
+.milestone-magic.completed {
+background: #451E7C;
+transform: scale(1.2);
+transition: all 0.3s ease;
+}
+
+.progress-container-magic {
+top:120px;
+width: 80%;
+max-width: 500px;
+margin: 0 auto 2rem auto;
+position: relative;
+z-index: 2;
+}
+
+.progress-bar-magic {
+width: 100%;
+height: 10px;
+background: rgba(255, 255, 255, 0.1);
+border-radius: 20px;
+overflow: hidden;
+position: relative;
+}
+
+.progress-fill-magic {
+height: 100%;
+background: linear-gradient(90deg, var(--bg-envelope-color), #9f7732);
+border-radius: 20px;
+transition: width 0.5s ease-in-out;
+position: relative;
+overflow: hidden;
+}
+
+.progress-fill-magic::after {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: linear-gradient(
+90deg,
+rgba(255, 255, 255, 0) 0%,
+rgba(255, 255, 255, 0.3) 50%,
+rgba(255, 255, 255, 0) 100%
+);
+animation: shimmer 2s infinite;
+}
+
+.progress-text-magic {
+color: white;
+font-size: 0.9rem;
+margin-bottom: 0.5rem;
+text-align: center;
+text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes shimmer {
+0% {
+transform: translateX(-100%);
+}
+100% {
+transform: translateX(100%);
+}
+}
+
+.contact-buttons-magic {
+display: flex;
+gap: 1rem;
+margin: 1rem 0;
+}
+
+/* Style for email input */
+input[type="email"] {
+width: 80%;
+padding: 12px;
+border: 2px solid rgba(255, 255, 255, 0.3);
+border-radius: 10px;
+background: rgba(255, 255, 255, 0.1);
+color: white;
+font-size: 1.1rem;
+transition: all 0.3s ease;
+}
+
+input[type="email"]:focus {
+outline: none;
+border-color: rgba(255, 255, 255, 0.6);
+box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+input[type="email"]::placeholder {
+color: rgba(255, 255, 255, 0.5);
+}
+
+button.option-button {
+touch-action: manipulation;
+position: relative;
+display: inline-block;
+cursor: pointer;
+outline: none;
+border: 0;
+vertical-align: middle;
+text-decoration: none;
+font-size: inherit;
+font-family: inherit;
+}
+button.option-button {
+touch-action: manipulation;
+font-weight: 600;
+color: var(--bg-envelope-color);
+text-transform: uppercase;
+padding: 1.25em 2em;
+background: #451E7C;
+border: 2px solid var(--bg-envelope-color);
+border-radius: 0.75em;
+transform-style: preserve-3d;
+transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+
+
+button.option-button:hover {
+background: #451E7C;
+transform: translate(0, 0.25em);
+}
