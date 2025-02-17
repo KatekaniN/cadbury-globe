@@ -76,10 +76,4 @@ Visit the application in your browser: http://localhost:5173
 - React Snowfall
 - React Share
 
-🙏 Acknowledgments: 
-Cadbury South Africa for inspiration
-Google Cloud Vision API for mood detection
-React community for amazing libraries
-
-
 Made with 💜 and 🍫 by Katekani Nyamandi 
