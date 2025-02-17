@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Snowfall from "react-snowfall";
 import "./SelfieUpload.css";
@@ -13,6 +14,17 @@ const MoodDetector = () => {
   const [snowAmount, setSnowAmount] = useState(100);
   const [isRevealed, setIsRevealed] = useState(false);
   const [isShaking, setIsShaking] = useState(false);
+  const navigate = useNavigate();
+
+  const getRiddleText = () => {
+    if (!detectedMood) {
+      return "In crystal sphere of winter's light, Your mood reflects both day and night. Share your smile, let joy take flight, As magic swirls in patterns bright.";
+    } else if (detectedMood.toLowerCase() !== "joy") {
+      return "The gates remain sealed tight and true, Until joy's light comes shining through. Share a smile, bright and new, For only happiness will let you through.";
+    } else {
+      return "Wonderful! Your joyful spirit has unlocked the magical path forward. Click 'Share the Magic' to spread your festive cheer!";
+    }
+  };
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -29,8 +41,8 @@ const MoodDetector = () => {
 
     setIsLoading(true);
     setError(null);
+    setIsShaking(true); 
 
-    // Create FormData to send the image
     const formData = new FormData();
     formData.append("selfie", selectedImage);
 
@@ -45,11 +57,15 @@ const MoodDetector = () => {
         }
       );
       setDetectedMood(response.data.mood);
+
+      // Stop shaking and reveal after 6 seconds
       setTimeout(() => {
+        setIsShaking(false);
         setIsRevealed(true);
-      }, 3000);
+      }, 6000);
     } catch (err) {
       setError("Error analyzing image. Please try again.");
+      setIsShaking(false);
       console.error("Error:", err);
     } finally {
       setIsLoading(false);
@@ -58,7 +74,7 @@ const MoodDetector = () => {
 
   return (
     <div className="mood-detector-selfie ">
-      {/* Logo Section */}
+      {/* Logo */}
       <div className="logo-section">
         <Snowfall snowflakeCount={snowAmount} useTwinkleEffect={true} />
         <div className="logo-elements-selfie">
@@ -76,26 +92,28 @@ const MoodDetector = () => {
           alt="Snow background"
         />
       </div>
-      {/* Scroll Section */}
-      <div className="scroll-section">
-        <div className="magical-scroll">
+
+      {/* Scroll */}
+      <div className="scroll-section-selfie">
+        <div className="magical-scroll-selfie">
           <h1>Magical Instructions</h1>
-          <p className="magical-riddle">
-            "In crystal sphere of winter's light, Your mood reflects both day
-            and night. Share your smile, let joy take flight, As magic swirls in
-            patterns bright."
-          </p>
+          <p className="magical-riddle-selfie">{getRiddleText()}</p>
         </div>
       </div>
-      {/* SnowGlobe Section */}
-      <div className="globe-section">
+
+      {/* SnowGlobe */}
+      <div className="globe-section-selfie">
         <div
           className={`snow-globe-container-selfie ${
             isRevealed ? "revealed" : ""
-          }`}
+          } ${isShaking ? "shaking" : ""}`}
         >
           {imagePreview && (
-            <img src={imagePreview} alt="Your photo" className="globe-image" />
+            <img
+              src={imagePreview}
+              alt="Your photo"
+              className={`globe-image-selfie ${isRevealed ? "revealing" : ""}`}
+            />
           )}
           <div className="snow-globe-selfie">
             <div className="snow-particles">
@@ -111,7 +129,7 @@ const MoodDetector = () => {
         </div>
       </div>
 
-      {/* Upload Section */}
+      {/* Upload */}
       <div className="upload-section-wrapper">
         <form onSubmit={handleSubmit}>
           <div className="upload-section-selfie">
@@ -124,20 +142,34 @@ const MoodDetector = () => {
           </div>
 
           <button
-type="submit"
-disabled={!selectedImage || isLoading}
-className="button-40"
-role="button"
->
-<span className="text">
-  {isLoading ? "Analyzing..." : "Get Magical Mood"}
-</span>
-</button>
+            type="submit"
+            disabled={!selectedImage || isLoading}
+            className="button-40"
+            role="button"
+          >
+            <span className="text">
+              {isLoading ? "Analyzing..." : "Get Magical Mood"}
+            </span>
+          </button>
+
+          {/* Continue */}
+          {detectedMood && detectedMood.toLowerCase() === "joy" && (
+            <button
+              type="button"
+              className="button-40 continue-button"
+              onClick={() => {
+               navigate("/gift-quiz");
+              }}
+            >
+              <span className="text">Share the Magic</span>
+            </button>
+          )}
         </form>
       </div>
       {error && <div className="error-message-selfie">{error}</div>}
     </div>
   );
 };
+
 
 export default MoodDetector;

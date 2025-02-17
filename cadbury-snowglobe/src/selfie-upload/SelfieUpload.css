@@ -78,7 +78,7 @@ margin-left: 1em;
 }
 
 .logo-selfie {
-width: 250px; /* Set a fixed width */
+width: 250px; 
 height: 100px; 
 margin-top: 1.2em;
 margin-left: 50px; 
@@ -96,15 +96,10 @@ overflow: visible;
 opacity: 0.5;
 }
 
-.globe-section{
+.globe-section-selfie{
 margin-top: 40px;
 margin-left: 10px;
 }
-
-
-
-
-
 
 @keyframes glow {
 0%, 100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); }
@@ -112,8 +107,8 @@ margin-left: 10px;
 }
 
 
-.magical-scroll {
-top: 300px;
+.magical-scroll-selfie {
+top: 150px;
 left: -450px;
 transform: translateY(-50%);
 width: 300px;
@@ -135,7 +130,7 @@ position: relative;
 overflow: hidden;
 }
 
-.magical-scroll::before {
+.magical-scroll-selfie::before {
 content: '';
 position: absolute;
 top: 0;
@@ -149,7 +144,7 @@ transparent
 );
 }
 
-.magical-scroll::after {
+.magical-scroll-selfie::after {
 content: '';
 position: absolute;
 bottom: 0;
@@ -163,7 +158,7 @@ transparent
 );
 }
 
-.magical-scroll h1 {
+.magical-scroll-selfie h1 {
 font-family: 'Cinzel Decorative', cursive;
 color: #8B4513;
 text-align: center;
@@ -174,7 +169,7 @@ letter-spacing: 2px;
 position: relative;
 }
 
-.magical-scroll h1::after {
+.magical-scroll-selfie h1::after {
 content: '';
 position: absolute;
 bottom: -10px;
@@ -190,7 +185,7 @@ transparent
 );
 }
 
-.magical-riddle {
+.magical-riddle-selfie {
 font-family: 'Crimson Text', serif;
 color: #4a4a4a;
 text-align: center;
@@ -218,9 +213,10 @@ height: 420px;
 position: relative;
 perspective: 1000px;
 top:-350px;
+transform-origin: center center;
 }
 
-.globe-image {
+.globe-image-selfie {
 position: absolute;
 top: -138px;
 left: 0;
@@ -230,8 +226,6 @@ border-radius: 50%;
 object-fit: cover;
 z-index: 1;
 }
-
-
 
 .snow-globe-selfie {
 top: -138px;
@@ -256,8 +250,8 @@ display: none;
 
 .snow-globe-base {
 position: absolute;
-bottom: -20px;
-left: 50%;
+bottom: -18px;
+left: 50.5%;
 transform: translateX(-50%);
 width: 400px;
 height: 250px;
@@ -341,22 +335,22 @@ filter: drop-shadow(0px 0px 8px rgba(255, 215, 0, 0.8));
 
 
 .button-40 {
---glow-color: #FFD700; /* Bright gold */
---glow-spread-color: rgba(255, 215, 0, 0.781); /* Semi-transparent gold */
---enhanced-glow-color: #FFF1B3; /* Light gold */
---btn-color: #8B7355; /* Darker gold/bronze for background */
+  --glow-color: #C3A36D;
+  --glow-spread-color: #C3A36D;
+--enhanced-glow-color: #FFF1B3; 
+--btn-color: #8B7355; 
 border: 0.25em solid var(--glow-color);
 padding: 1em 3em;
-color: #FFFFFF; /* White text for better contrast */
+color: #FFFFFF; 
 font-size: 15px;
 font-weight: bold;
-background: linear-gradient(145deg, #B8860B, #DAA520); /* Gold gradient background */
+background: linear-gradient(145deg, #937135, #C3A36D);
 border-radius: 50px;
 outline: none;
 box-shadow: 0 0 0.5em 0.1em var(--glow-color),
   0 0 2em 0.5em var(--glow-spread-color),
   inset 0 0 0.5em 0.1em var(--glow-color);
-text-shadow: 0 0 0.2em #FFD700;
+text-shadow: 0 0 0.2em #c59c54;
 position: relative;
 transition: all 0.3s;
 cursor: pointer;
@@ -374,22 +368,22 @@ top: 120%;
 left: 0;
 height: 100%;
 width: 100%;
-background-color: rgba(255, 215, 0, 0.5);
+background-color: #C3A36D;
 filter: blur(1.5em);
 opacity: 0.5;
 transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
 }
 
 .button-40:hover {
-color: #ffffff; /* Black text on hover for contrast */
-background: linear-gradient(145deg, #FFD700, #FDB931); /* Brighter gold gradient on hover */
+color: #ffffff; 
+background: linear-gradient(145deg, #C3A36D, #C3A36D);
 box-shadow: 0 0 0.75em 0.15em var(--glow-color),
   0 0 2.5em 1em var(--glow-spread-color),
   inset 0 0 0.5em 0.15em var(--glow-color);
 }
 
 .button-40:active {
-background: linear-gradient(145deg, #DAA520, #B8860B); /* Darker gold gradient when pressed */
+background: linear-gradient(145deg, #b78c42, #C3A36D); 
 box-shadow: 0 0 0.4em 0.15em var(--glow-color),
   0 0 1.5em 1em var(--glow-spread-color),
   inset 0 0 0.4em 0.15em var(--glow-color);
@@ -401,7 +395,6 @@ cursor: not-allowed;
 filter: saturate(60%);
 }
 
-/* Optional: Add specific styles for the loading state */
 .button-40.loading {
 animation: pulse 1.5s infinite;
 }
@@ -425,10 +418,23 @@ box-shadow: 0 0 0.5em 0.1em var(--glow-color),
 }
 
 @keyframes shake {
-0%, 100% { transform: translateX(0); }
-10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-20%, 40%, 60%, 80% { transform: translateX(5px); }
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-2deg); }
+  20% { transform: translate(-3px, 0px) rotate(2deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(2deg); }
+  50% { transform: translate(-1px, 2px) rotate(-2deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-2deg); }
+  80% { transform: translate(-1px, -1px) rotate(2deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-2deg); }
 }
+
+.snow-globe-container-selfie.shaking {
+  animation: shake 0.5s ease-in-out infinite;
+  transform-origin: center center;
+  }
 
 @keyframes reveal {
 from { opacity: 0; }
@@ -449,3 +455,64 @@ opacity: 0;
 .globe-image.revealing {
 animation: reveal 6s ease-in-out forwards;
 }      
+
+.continue-button {
+  position: absolute;
+  margin-top: 70px;
+  width: 60%;
+  margin-left: -250px;
+  background: linear-gradient(145deg, #451E7C, #371b5f);
+  border: 0.25em solid #b9a7d3;
+  color: #ffffff;
+  --glow-color: #b9a7d3;
+  --glow-spread-color: rgba(185, 167, 211, 0.6);
+  --enhanced-glow-color: #ddd1ec;
+  --btn-color: #451E7C;
+  box-shadow: 0 0 0.5em 0.1em var(--glow-color),
+              0 0 2em 0.5em var(--glow-spread-color),
+              inset 0 0 0.5em 0.1em var(--glow-color);
+  
+  transition: all 0.3s ease-in-out;
+  }
+  
+  .continue-button:hover {
+  background: linear-gradient(145deg, #532495, #451E7C);
+  color: #ffffff;
+
+  box-shadow: 0 0 0.75em 0.15em var(--glow-color),
+              0 0 2.5em 1em var(--glow-spread-color),
+              inset 0 0 0.5em 0.15em var(--glow-color);
+  }
+  
+  .continue-button:active {
+  background: linear-gradient(145deg, #371b5f, #451E7C);
+  box-shadow: 0 0 0.4em 0.15em var(--glow-color),
+              0 0 1.5em 0.75em var(--glow-spread-color),
+              inset 0 0 0.5em 0.15em var(--glow-color);
+  }
+  
+  .magical-riddle {
+  transition: all 0.5s ease-in-out;
+  }
+
+  .continue-button {
+  /* animation: buttonPulse 2s infinite;*/
+  }
+  
+  @keyframes buttonPulse {
+  0% {
+    box-shadow: 0 0 0.5em 0.1em var(--glow-color),
+                0 0 2em 0.5em var(--glow-spread-color),
+                inset 0 0 0.5em 0.1em var(--glow-color);
+  }
+  50% {
+    box-shadow: 0 0 0.75em 0.2em var(--glow-color),
+                0 0 2.5em 0.75em var(--glow-spread-color),
+                inset 0 0 0.5em 0.15em var(--glow-color);
+  }
+  100% {
+    box-shadow: 0 0 0.5em 0.1em var(--glow-color),
+                0 0 2em 0.5em var(--glow-spread-color),
+                inset 0 0 0.5em 0.1em var(--glow-color);
+  }
+  }

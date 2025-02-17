@@ -14,13 +14,12 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:5173", // Your frontend URL
+    origin: "http://localhost:5173", 
     methods: ["POST"],
     allowedHeaders: ["Content-Type"],
   })
 );
 
-// Initialize Vision client
 const client = new vision.ImageAnnotatorClient({
   keyFilename: path.join(__dirname, "./service-account-key.json"),
 });
@@ -44,13 +43,11 @@ app.post("/detect-mood", async (req, res) => {
     const imagePath = files.selfie[0].filepath;
 
     try {
-      // Analyze the image with Google Vision API
       const [result] = await client.faceDetection(imagePath);
       const faces = result.faceAnnotations;
 
       if (!faces || faces.length === 0) {
-        // Clean up the uploaded file
-        fs.unlinkSync(imagePath);
+   
         return res.json({ mood: "neutral" });
       }
 
@@ -70,7 +67,7 @@ app.post("/detect-mood", async (req, res) => {
         VERY_LIKELY: 5,
       };
 
-      let mostProminentMood = "neutral";
+      let mostProminentMood = "Neutral";
       let highestLikelihood = 0;
 
       for (const [mood, likelihood] of Object.entries(moods)) {
@@ -80,9 +77,8 @@ app.post("/detect-mood", async (req, res) => {
           mostProminentMood = mood;
         }
       }
-
-      // Clean up the uploaded file
-      fs.unlinkSync(imagePath);
+  
+  //    fs.unlinkSync(imagePath);
 
       res.json({ mood: mostProminentMood });
     } catch (error) {

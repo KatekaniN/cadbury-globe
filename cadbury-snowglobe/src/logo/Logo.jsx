@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Snowfall from "react-snowfall";
-import Snowglobe from "../snowglobe/Globe";
 import "./Logo.css";
 
 export default function Logo() {

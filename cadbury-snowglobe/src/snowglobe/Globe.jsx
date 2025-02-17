@@ -4,9 +4,9 @@ import Snowfall from "react-snowfall";
 import "./GlobeReveal";
 
 const Globe = () => {
-  const [snowflakeCount, setSnowflakeCount] = useState(0); //max 750
-  const [snowflakeRadius, setSnowflakeRadius] = useState([0.5, 3.0]); // snowflake size -> min 0.5 and max 3.0
-  const [snowflakeSpeed, setSnowflakeSpeed] = useState([0.5, 3.0]); //  snowflake speed-> min 0.5 and max 3.0  
+  const [snowflakeCount, setSnowflakeCount] = useState(0); 
+  const [snowflakeRadius, setSnowflakeRadius] = useState([0.5, 3.0]); 
+  const [snowflakeSpeed, setSnowflakeSpeed] = useState([0.5, 3.0]); 
   return (
     <div className="globe-container">
       {/* Glass Globe */}

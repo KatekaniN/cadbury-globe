@@ -1,203 +1,221 @@
-/* EnvelopeCard.css */
 :root {
---primary: #fff;
---bg-envelope-color: #C3A36D;
---envelope-tab: #C3A36D;
---envelope-cover: #bc924a;
---shadow-color: rgba(45, 43, 43, 0.3);
---txt-color: #333;
---heart-color: #451E7C;
+  --primary: #fff;
+  --bg-envelope-color: #c3a36d;
+  --envelope-tab: #c3a36d;
+  --envelope-cover: #bc924a;
+  --shadow-color: rgba(45, 43, 43, 0.3);
+  --txt-color: #333;
+  --heart-color: #451e7c;
 }
 
-@font-face{
-  font-family: 'DeerSnow';
-  src: url('DeerSnow.ttf') ;
+@font-face {
+  font-family: "Comic";
+  src: url('comic.ttf');
 }
 
-.container {
-display: grid;
-place-items: center;
+@font-face {
+  font-family: "DeerSnow";
+  src: url("DeerSnow.ttf");
 }
 
-.envelope-wrapper {
-/* rotate: 1 1 1 -80deg;   lying down*/ 
-right:380px;
-top: 75%;
-z-index: 20; 
-position: relative;
-width: 280px;
-height: 180px;
-background: var(--bg-envelope-color);
-box-shadow: 0 15px 5px -5px var(--shadow-color);
-perspective: 1000px;
-transform: rotateX(60deg) rotateZ(-20deg);
-transition: transform 0.5s ease-in-out;
+.container-letter {
+  display: grid;
+  place-items: center;
 }
 
-.envelope {
-position: relative;
-width: 100%;
-height: 100%;
-transform-style: preserve-3d;
-transition: transform 0.5s ease-in-out;
-
+.envelope-wrapper-letter {
+  /* rotate: 1 1 1 -80deg;   lying down*/
+  right: 380px;
+  top: 75%;
+  z-index: 20;
+  position: relative;
+  width: 280px;
+  height: 180px;
+  background: var(--bg-envelope-color);
+  box-shadow: 0 15px 5px -5px var(--shadow-color);
+  perspective: 1000px;
+  transform: rotateX(60deg) rotateZ(-20deg);
+  transition: transform 0.5s ease-in-out;
 }
 
-.envelope::before {
-content: "";
-position: absolute;
-top: 0;
-z-index: 2;
-border-top: 120px solid var(--envelope-tab); /* 230px */
-border-right: 140px solid transparent;  /* 350px */
-border-left: 140px solid transparent; /* 150px */
-transform-origin: top;
-transition: all 0.5s ease-in-out;
+.envelope-letter {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-in-out;
 }
 
-.envelope::after {
-content: "";
-position: absolute;
-z-index: 1;
-width: 0px;
-height: 0px;
-border-top: 70px solid transparent;
-border-right: 150px solid var(--envelope-cover); /* 350px */
-border-bottom: 110px solid var(--envelope-cover); /* 200px */
-border-left: 130px solid var(--envelope-cover); /* 150px */
+.envelope-letter::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  border-top: 120px solid var(--envelope-tab);
+  border-right: 140px solid transparent;
+  border-left: 140px solid transparent;
+  transform-origin: top;
+  transition: all 0.5s ease-in-out;
+}
+
+.envelop-letter::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 0px;
+  height: 0px;
+  border-top: 70px solid transparent;
+  border-right: 150px solid var(--envelope-cover);
+  border-bottom: 110px solid var(--envelope-cover);
+  border-left: 130px solid var(--envelope-cover);
 }
 
 .letter {
-z-index: 20; 
-position: absolute;
-right: 18%;
-bottom: -50px;
-width: 62%;
-height:180%;
-background: var(--heart-color);
-text-align: center;
-transition: all 1s ease-in-out;
-box-shadow: 0 0 5px var(--envelope-cover);
-padding: 20px 10px;
-transform-origin: bottom;
-transform: translateY(100%) rotateX(50deg);
-opacity: 0;
-
+  z-index: 20;
+  position: absolute;
+  right: 18%;
+  bottom: -50px;
+  width: 62%;
+  height: 180%;
+  background: var(--heart-color);
+  text-align: center;
+  transition: all 1s ease-in-out;
+  box-shadow: 0 0 5px var(--envelope-cover);
+  padding: 20px 10px;
+  transform-origin: bottom;
+  transform: translateY(100%) rotateX(50deg);
+  opacity: 0;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
 }
 
-.letter > .text {
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-color: var(--bg-envelope-color);
-text-align: left;
-font-size: 12px;
+.letter > .text-letter {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: var(--bg-envelope-color);
+  text-align: left;
+  font-size: 12px;
 }
 
-.heart {
-z-index: 30; 
-position: absolute;
-top: 65%;
-left: 50%;
-width: 14px;
-height: 14px;
-background: var(--heart-color);
-z-index: 4;
-transform: translate(-50%, -50%) rotate(45deg);
-transition: transform 0.5s ease-in-out;
-box-shadow: 0 0 5px var(--shadow-color);
+.text-letter {
+  width: 100%; 
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  padding: 5px; 
+  }
 
-cursor: pointer;
+.heart-letter {
+  z-index: 30;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  background: var(--heart-color);
+  z-index: 4;
+  transform: translate(-50%, -50%) rotate(45deg);
+  transition: transform 0.5s ease-in-out;
+  box-shadow: 0 0 5px var(--shadow-color);
+
+  cursor: pointer;
 }
 
-.heart:before,
-.heart:after {
-content: "";
-position: absolute;
-width: 14px;
-height: 14px;
-background-color: var(--heart-color);
-border-radius: 50%;
+.heart-letter:before,
+.heart-letter:after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background-color: var(--heart-color);
+  border-radius: 50%;
 }
 
-.heart:before {
-top: -7.5px;
+.heart-letter:before {
+  top: -7.5px;
 }
 
-.heart:after {
-right: 7.5px;
+.heart-letter:after {
+  right: 7.5px;
 }
 
-/* Animation when the letter is opened */
-.flap .envelope::before {
-transform: rotateX(180deg);
-z-index: 0;
+.flap .envelope-letter::before {
+  transform: rotateX(180deg);
+  z-index: 0;
 }
 
 .flap .letter {
-transform: translateY(-140%) scale(1.3) rotateX(-20deg) rotateZ(20deg) rotateX(-0deg);
-z-index: 4;
-opacity: 1;
-transition-delay: 0.5s;
+  transform: translateY(-140%) scale(1.3) rotateX(-20deg) rotateZ(20deg)
+    rotateX(-0deg);
+  z-index: 4;
+  opacity: 1;
+  transition-delay: 0.5s;
 }
 
-.flap .heart {
-transform: rotate(90deg);
-transition-delay: 0.4s;
+.flap .heart-letter {
+  transform: rotate(90deg);
+  transition-delay: 0.4s;
 }
-.flap .envelope-wrapper {
-    transform: rotateX(0deg) rotateZ(0deg); /* Straightens */
+.flap .envelope-wrapper-letter {
+  transform: rotateX(0deg) rotateZ(0deg);
+}
+
+.heart-button-letter {
+  position: absolute;
+  top: 26em;
+  left: 70%;
+  width: 25px;
+  height: 25px;
+  background-color: #bc924a;
+  transform: rotate(-45deg); /* Changed rotation */
+  cursor: pointer;
+  animation: beat 1.5s infinite alternate;
   }
 
-  .heart-button {
-    position: absolute;
-    top: 26em;
-    left: 70%;
-    transform: translateX(-100%) rotate(5deg);
-    width: 25px;
-    height: 25px; 
-    background-color: #bc924a;
-    cursor: pointer;
-    animation: beat 1.5s infinite alternate;
-    }
-    
-    /* Create heart shape using ::before and ::after */
-    .heart-button::before,
-    .heart-button::after {
-    content: "";
-    position: absolute;
-    width: 25px; 
-    height: 25px;
-    background-color: #bc924a;
-    border-radius: 50%;
-    }
-    
-    .heart-button::before {
-    left: -15px; 
-    top: 0px;   
-    }
-    
-    .heart-button::after {
-    left: 0px;  
-    top: -15px; 
-    }
-    
-    /* Beating Animation */
-    @keyframes beat {
-    0% {
-      transform: translateX(-50%) rotate(50deg) scale(1);
-      box-shadow: 0 0 10px var(--envelope-cover);
-    }
-    50% {
-      transform: translateX(-50%) rotate(50deg) scale(1.08);
-      box-shadow: 0 0 20px var(--envelope-cover);
-    }
-    100% {
-      transform: translateX(-50%) rotate(50deg) scale(1);
-      box-shadow: 0 0 10px var(--envelope-cover);
-    }
-    }
-    
-    /* Hover effect for extra flair */
-    .heart-button:hover {
-    
-    transition: transform 0.3s ease-in-out;
-    }
+.heart-button-letter::before,
+.heart-button-letter::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: #bc924a;
+  border-radius: 50%;
+}
+
+.heart-button-letter::before {
+  left: -15px;
+  top: 0px;
+}
+
+.heart-button-letter::after {
+  left: 0px;
+  top: -15px;
+}
+
+@keyframes beat {
+  0% {
+    transform: translateX(-50%) rotate(50deg) scale(1);
+    box-shadow: 0 0 10px var(--envelope-cover);
+  }
+  50% {
+    transform: translateX(-50%) rotate(50deg) scale(1.08);
+    box-shadow: 0 0 20px var(--envelope-cover);
+  }
+  100% {
+    transform: translateX(-50%) rotate(50deg) scale(1);
+    box-shadow: 0 0 10px var(--envelope-cover);
+  }
+}
+
+.heart-button-letter:hover {
+  transition: transform 0.3s ease-in-out;
+}
+
+.letter-h3 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1.2em;
+  color: var(--bg-envelope-color);
+  text-align: center;
+  width: 100%;
+  margin: 0 0 15px 0;
+}

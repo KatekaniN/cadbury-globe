@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Snowfall from "react-snowfall";
-import Snowglobe from "../snowglobe/GlobeReveal";
 import "./MagicReveal.css";
 
 const questions = [
@@ -22,7 +21,7 @@ const questions = [
   },
   {
     label:
-      "Riddle: What has no beginning and no end but can fill your hands with joy?",
+      " What has no beginning and no end but can fill your hands with joy?",
     key: "riddleAnswer",
     type: "text",
   },
@@ -39,7 +38,7 @@ const MagicReveal = () => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-      if (answers.riddleAnswer?.toLowerCase() === "snow") {
+      if (answers.riddleAnswer?.toLowerCase() === "cadbury") {
         setIsHealed(true);
       } else {
         alert("The riddle answer is incorrect. Try again!");
@@ -120,7 +119,7 @@ const MagicReveal = () => {
         >
           <h2>{questions[currentQuestionIndex].label}</h2>
 
-          {/* Yes/No Question */}
+      
           {currentQuestionIndex === 2 && (
             <div className="contact-buttons-magic">
               <button
@@ -144,7 +143,6 @@ const MagicReveal = () => {
             </div>
           )}
 
-          {/* Email Question (Only if user said "Yes, please!") */}
           {currentQuestionIndex === 3 && wantContact && (
             <input
               type="email"
@@ -156,9 +154,9 @@ const MagicReveal = () => {
             />
           )}
 
-          {/* Regular Input Questions */}
+
           {currentQuestionIndex !== 2 &&
-            currentQuestionIndex !== 3 && ( // Add this condition
+            currentQuestionIndex !== 3 && ( 
               <input
                 type={questions[currentQuestionIndex].type}
                 name={questions[currentQuestionIndex].key}
