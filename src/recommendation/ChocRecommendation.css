@@ -17,6 +17,11 @@
 }
 
 @font-face {
+  font-family: "Playwrite";
+  src: url("Playwrite.ttf");
+}
+
+@font-face {
   font-family: "Comic";
   src: url("comic.ttf");
 }
@@ -190,11 +195,11 @@ h3 {
 }
 
 .recommendation-card h2 {
+  font-family: "Playwrite";
   color: var(--cadbury-purple);
   text-align: center;
   margin: 18px 0;
   font-size: 1.8em;
-  font-family: "DeerSnow", sans-serif;
   transform: translateY(-50px);
 }
 
